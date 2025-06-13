@@ -3,11 +3,15 @@ const express = require('express');
 const morgan = require('morgan');
 const actionTypes = require('./models/actionTypes');
 
+const cors = require('cors');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // In-memory storage
 const users = new Map();
+app.use(cors());
+
 
 // Middleware
 app.use(express.json());
